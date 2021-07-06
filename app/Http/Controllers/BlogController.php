@@ -27,24 +27,19 @@ class BlogController extends Controller
     // ブログのある詳細データ
     public function showDetail($id) {
 
+        $blog = Blog::find($id);
 
-        // $blog = Blog::find($id);
-
-        // dd($blog);
-
-        // return view('blog.show',
-        // [
-        //     'blog' => $blog,
-        // ]);
-
-
-        $blog = Blog::find(1);
-
-        return view('b',
+        return view('blog.detail',
         [
-            'b' => $blog,
+            'blog' => $blog,
         ]);
 
+    }
+
+
+    public function showCreate() 
+    {
+        return view('blog.form');
     }
 
 }

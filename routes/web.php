@@ -16,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'BlogController@showList')->name('blogs');
 
 
+// ブログ登録画面を表示
+Route::get('/blog/create', 'BlogController@showCreate')->name('create');
 
 Route::get('/blog/{id}', 'BlogController@showDetail')->name('show');
