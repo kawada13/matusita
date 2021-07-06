@@ -46,20 +46,21 @@ class BlogController extends Controller
     }
 
 
-    public function exeStore(BlogRequest $request) 
+    public function exeStore(Request $request) 
     {
-        // ブログのデータを受け取る
-        $inputs = $request->all();
 
-        DB::beginTransaction();
-        try {
-            // ブログを登録
-            Blog::create($inputs);
-            DB::commit();
-        } catch(\Throwable $e) {
-            DB::rollback();
-            abort(500);
-        }
+        // ブログのデータを受け取る
+        // $inputs = $request->all();
+
+
+        $blog = new Blog;
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->save();
+
+
+        // ブログを登録
+        // Blog::create($inputs);
 
         return redirect(route('blogs'));
     }
@@ -88,22 +89,13 @@ class BlogController extends Controller
     public function exeUpdate(BlogRequest $request) 
     {
         // ブログのデータを受け取る
-        $inputs = $request->all();
+        // $inputs = $request->all();
 
-        DB::beginTransaction();
-        try {
-            // ブログを更新
-            $blog = Blog::find($inputs['id']);
-            $blog->fill([
-                'title' => $inputs['title'],
-                'content' => $inputs['content'],
-            ]);
-            $blog->save();
-            DB::commit();
-        } catch(\Throwable $e) {
-            DB::rollback();
-            abort(500);
-        }
+        // ブログを更新
+        $blog = Blog::find($request->id);
+        $blog->title = $request->title;
+        $blog->content = $request->content;
+        $blog->save();
 
         return redirect(route('blogs'));
     }
