@@ -14,7 +14,13 @@
           <tr>
               <td>{{ $blog->id }}</td>
               <td>{{ $blog->updated_at }}</td>
-              <td>{{ $blog->title }}</td>
+
+              <td>
+                <a href="/blog/{{ $blog->id }}">
+                 {{ $blog->title }}
+                </a>
+              </td>
+
               <td>{{ $blog->content }}</td>
           </tr>
           @endforeach
