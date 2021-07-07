@@ -81,6 +81,8 @@ class BlogController extends Controller
         return view('blog.edit', ['blog' => $blog]);
     }
 
+    
+
     /**
      * ブログを更新する
      * 
@@ -88,8 +90,7 @@ class BlogController extends Controller
      */
     public function exeUpdate(BlogRequest $request) 
     {
-        // ブログのデータを受け取る
-        // $inputs = $request->all();
+        // dd($request->all());
 
         // ブログを更新
         $blog = Blog::find($request->id);
