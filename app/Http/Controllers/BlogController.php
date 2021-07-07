@@ -9,7 +9,6 @@ use App\Http\Requests\BlogRequest;
 use Illuminate\Support\Facades\DB;
 
 
-
 class BlogController extends Controller
 {
     // ブログの全権取得
@@ -81,7 +80,7 @@ class BlogController extends Controller
         return view('blog.edit', ['blog' => $blog]);
     }
 
-    
+
 
     /**
      * ブログを更新する
