@@ -45,7 +45,7 @@ class BlogController extends Controller
     }
 
 
-    public function exeStore(Request $request) 
+    public function exeStore(BlogRequest $request) 
     {
 
         // ブログのデータを受け取る

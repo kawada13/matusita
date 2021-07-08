@@ -21,6 +21,8 @@ class CreateBlogsTable extends Migration
         });
     }
 
+
+    
     /**
      * Reverse the migrations.
      *
