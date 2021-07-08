@@ -117,6 +117,7 @@ class BlogController extends Controller
             abort(500);
         }
 
+        
         return redirect(route('blogs'));
     }
 
